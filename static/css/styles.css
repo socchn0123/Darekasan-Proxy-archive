@@ -1,3 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+iframe {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+}
+
 .tabcontent {
     display: none;
 }
@@ -17,4 +36,23 @@
 
 .tablink.active {
     background-color: #ccc;
+}
+
+.tabContainer {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.closeButton {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    margin-left: 5px;
+}
+
+.closeButton:hover {
+    background-color: darkred;
 }
