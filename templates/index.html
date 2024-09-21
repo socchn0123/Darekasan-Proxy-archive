@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Darekasan Proxy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <h1>Darekasan Proxy</h1>
-    <form action="/proxy" method="post">
-        <label for="url">ここにURLを入力:</label>
-        <input type="text" id="url" name="url">
-        <button type="submit">送信</button>
-    </form>
+    <div id="tabs">
+        <button class="tablink" onclick="openTab(event, 'Tab1')">Tab 1</button>
+        <button class="tablink" onclick="openTab(event, 'Tab2')">Tab 2</button>
+        <button class="tablink" onclick="openTab(event, 'Tab3')">Tab 3</button>
+    </div>
+    <div id="Tab1" class="tabcontent">
+        <form action="/proxy" method="post">
+            <label for="url">ここにURLを入力:</label>
+            <input type="text" id="url" name="url">
+            <button type="submit">送信</button>
+        </form>
+    </div>
+    <div id="Tab2" class="tabcontent">
+        <!-- Tab 2 content -->
+    </div>
+    <div id="Tab3" class="tabcontent">
+        <!-- Tab 3 content -->
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>
