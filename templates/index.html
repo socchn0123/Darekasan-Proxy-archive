@@ -7,23 +7,17 @@
 </head>
 <body>
     <h1>Darekasan Proxy</h1>
-    <div id="tabs">
-        <button class="tablink" onclick="openTab(event, 'Tab1')">Tab 1</button>
-        <button class="tablink" onclick="openTab(event, 'Tab2')">Tab 2</button>
-        <button class="tablink" onclick="openTab(event, 'Tab3')">Tab 3</button>
-    </div>
-    <div id="Tab1" class="tabcontent">
-        <form action="/proxy" method="post">
-            <label for="url">ここにURLを入力:</label>
-            <input type="text" id="url" name="url">
-            <button type="submit">送信</button>
-        </form>
-    </div>
-    <div id="Tab2" class="tabcontent">
-        <!-- Tab 2 content -->
-    </div>
-    <div id="Tab3" class="tabcontent">
-        <!-- Tab 3 content -->
+    <form id="urlForm">
+        <label for="url">ここにURLを入力:</label>
+        <input type="text" id="url" name="url">
+        <button type="submit">送信</button>
+    </form>
+    <div id="tabs"></div>
+    <div id="tabContents"></div>
+    <div id="confirmationDialog" style="display:none;">
+        <p>HTTPSでの読み込みに失敗しました。HTTPで読み込みますか？</p>
+        <button id="confirmYes">はい</button>
+        <button id="confirmNo">いいえ</button>
     </div>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
