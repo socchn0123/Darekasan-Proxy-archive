@@ -1,58 +1,34 @@
+/* static/css/styles.css */
+
+/* デフォルトのライトモード */
 body {
-    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
 }
 
+/* ダークモード */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+/* その他のスタイル */
 h1 {
-    text-align: center;
+    font-size: 2em;
+    margin-bottom: 0.5em;
 }
 
 form {
-    text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 1em;
 }
 
-iframe {
-    display: block;
-    margin: 0 auto;
-    border: 1px solid #ccc;
+input[type="text"] {
+    padding: 0.5em;
+    font-size: 1em;
 }
 
-.tabcontent {
-    display: none;
-}
-
-.tablink {
-    background-color: #f1f1f1;
-    color: black;
-    border: none;
+button {
+    padding: 0.5em 1em;
+    font-size: 1em;
     cursor: pointer;
-    padding: 14px 16px;
-    font-size: 17px;
-}
-
-.tablink:hover {
-    background-color: #ddd;
-}
-
-.tablink.active {
-    background-color: #ccc;
-}
-
-.tabContainer {
-    display: inline-block;
-    margin-right: 5px;
-}
-
-.closeButton {
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    font-size: 17px;
-    margin-left: 5px;
-}
-
-.closeButton:hover {
-    background-color: darkred;
 }
