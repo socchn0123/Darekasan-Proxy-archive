@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Proxy</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
     <h1>Proxy</h1>
+    <button id="toggle-dark-mode">ダークモード切替</button>
     <form id="proxy-form">
         <input type="text" id="url" placeholder="URLを入力してください">
         <button type="submit">検索</button>
@@ -36,6 +38,11 @@
             .then(data => {
                 document.getElementById('result').innerHTML = data.content;
             });
+        });
+
+        // ダークモードの切り替え
+        document.getElementById('toggle-dark-mode').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
         });
     </script>
 </body>
