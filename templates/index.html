@@ -2,23 +2,41 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>Darekasan Proxy</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Proxy</title>
 </head>
 <body>
-    <h1>Darekasan Proxy</h1>
-    <form id="urlForm">
-        <label for="url">ここにURLを入力:</label>
-        <input type="text" id="url" name="url">
-        <button type="submit">送信</button>
+    <h1>Proxy</h1>
+    <form id="proxy-form">
+        <input type="text" id="url" placeholder="URLを入力してください">
+        <button type="submit">検索</button>
     </form>
-    <div id="tabs"></div>
-    <div id="tabContents"></div>
-    <div id="confirmationDialog" style="display:none;">
-        <p>HTTPSでの読み込みに失敗しました。HTTPで読み込みますか？</p>
-        <button id="confirmYes">はい</button>
-        <button id="confirmNo">いいえ</button>
-    </div>
-    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <div id="result"></div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/static/js/service-worker.js').then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function(error) {
+                console.log('ServiceWorker registration failed: ', error);
+            });
+        }
+
+        document.getElementById('proxy-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const url = document.getElementById('url').value;
+
+            fetch('/proxy', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ url: url })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerHTML = data.content;
+            });
+        });
+    </script>
 </body>
 </html>
